@@ -1,0 +1,68 @@
+<div id="ax-products">
+  <div class="product-gallery">
+  <div id="product-display">
+    <div class="product-angle">
+      <div id="front-angle">
+        <img imageonclick ng-click="$root.selectedAngle = 'f';" ng-src="products/{{defaultProduct.productId}}/{{defaultProduct.productId}}_{{$root.selectedColor.productColorId}}_{{$root.selectedColor.productGraphicsId}}_{{$root.selectedColor.productGraphicsColorId}}_f.jpg"></img>
+      </div>
+      <div id="left-angle">
+        <img imageonclick ng-click="$root.selectedAngle = 'l';" ng-src="products/{{defaultProduct.productId}}/{{defaultProduct.productId}}_{{$root.selectedColor.productColorId}}_{{$root.selectedColor.productGraphicsId}}_{{$root.selectedColor.productGraphicsColorId}}_l.jpg"></img>
+      </div>
+      <div id="back-angle">
+        <img imageonclick ng-click="$root.selectedAngle = 'b';" ng-src="products/{{defaultProduct.productId}}/{{defaultProduct.productId}}_{{$root.selectedColor.productColorId}}_{{$root.selectedColor.productGraphicsId}}_{{$root.selectedColor.productGraphicsColorId}}_b.jpg"></img>
+      </div>
+      <div id="right-angle">
+        <img imageonclick ng-click="$root.selectedAngle = 'r';" ng-src="products/{{defaultProduct.productId}}/{{defaultProduct.productId}}_{{$root.selectedColor.productColorId}}_{{$root.selectedColor.productGraphicsId}}_{{$root.selectedColor.productGraphicsColorId}}_r.jpg"></img>
+      </div>
+    </div>
+
+    <div ng-show="$root.selectedAngle=='n'" class="main-image zoom" id="zoom-image-n">
+      <img imageonload ng-src="products/{{defaultProduct.productId}}/{{defaultProduct.productId}}_{{$root.selectedColor.productColorId}}_{{$root.selectedColor.productGraphicsId}}_{{$root.selectedColor.productGraphicsColorId}}_n.jpg"></img>
+    </div>
+    <div ng-show="$root.selectedAngle=='f'" class="main-image zoom" id="zoom-image-f">
+      <img imageonload ng-src="products/{{defaultProduct.productId}}/{{defaultProduct.productId}}_{{$root.selectedColor.productColorId}}_{{$root.selectedColor.productGraphicsId}}_{{$root.selectedColor.productGraphicsColorId}}_f.jpg"></img>
+    </div>
+    <div ng-show="$root.selectedAngle=='l'" class="main-image zoom" id="zoom-image-l">
+      <img imageonload ng-src="products/{{defaultProduct.productId}}/{{defaultProduct.productId}}_{{$root.selectedColor.productColorId}}_{{$root.selectedColor.productGraphicsId}}_{{$root.selectedColor.productGraphicsColorId}}_l.jpg"></img>
+    </div>
+    <div ng-show="$root.selectedAngle=='b'" class="main-image zoom" id="zoom-image-b">
+      <img imageonload ng-src="products/{{defaultProduct.productId}}/{{defaultProduct.productId}}_{{$root.selectedColor.productColorId}}_{{$root.selectedColor.productGraphicsId}}_{{$root.selectedColor.productGraphicsColorId}}_b.jpg"></img>
+    </div>
+    <div ng-show="$root.selectedAngle=='r'" class="main-image zoom" id="zoom-image-r">
+      <img imageonload ng-src="products/{{defaultProduct.productId}}/{{defaultProduct.productId}}_{{$root.selectedColor.productColorId}}_{{$root.selectedColor.productGraphicsId}}_{{$root.selectedColor.productGraphicsColorId}}_r.jpg"></img>
+    </div>
+
+
+    <div class="product-details">
+      <h1 id="product-title" class="title">{{product.name}}</h1>
+      <p id="product-description">{{product.description}}</p>
+    </div>
+    </div>
+  </div>
+  
+  <div class="product-colors">
+    <div id="colors-title" class="title">{{colorsTitle}}</div>
+    <div class="blocks-container">
+    <div class="blocks" ng-repeat="color in productColorsList" >
+      <img imageonclick ng-click="$root.selectedColor = color;productColorChange(color.productColorId)" id="product-color-{{color.productColorId}}" ng-src="products/{{product.productId}}/{{product.productId}}_{{color.productColorId}}_{{color.productGraphicsId}}_{{color.productGraphicsColorId}}_f.jpg"></img> 
+      <p>{{color.name}}</p>
+    </div>
+    </div>
+  </div>
+  <div class="product-features">
+    <div id="features-title" class="title">{{featuresTitle}}</div>
+	    <div class="blocks" ng-repeat="feature in product.features">
+	      <img ng-src="products/{{product.productId}}/features/{{product.productId}}_{{feature.productFeatureId}}.jpg"></img>
+	      <p class="feature-description">{{feature.name}}</p>
+	    </div>
+  </div>
+  <div class="product-graphics">
+    <div id="graphics-title" class="title">{{graphicsTitle}}</div>
+    <div class="blocks-container">
+	    <div class="blocks" ng-repeat="product in productGraphicsList">
+	      <a ui-sref="products_graphics({modelId: {{product.productId}}, colorId: {{product.productColorId}}, graphicsId: {{product.productGraphicsId}}, graphicsColorId: {{product.productGraphicsColorId}} })"><img ng-src="products/{{product.productId}}/{{product.productId}}_{{product.productColorId}}_{{product.productGraphicsId}}_{{product.productGraphicsColorId}}_f.jpg"></img></a>
+	      <p class="feature-description">{{product.productGraphicsName}}</p>
+	    </div>
+    </div>
+  </div>
+</div>

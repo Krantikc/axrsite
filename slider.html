@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+  <script src="libs/jquery-1.11.2.min.js"></script>
+  <script src="libs/jssor/jssor.js"></script>
+  <script src="libs/jssor/jssor.slider.js"></script>
+  <script type="text/javascript">
+  
+  $(document).ready(function(){
+	  var _SlideshowTransitions = [
+                                   {$Duration:1200,x:0.25,y:0.5,$Rotate:-0.1,$Easing:{$Left:$JssorEasing$.$EaseInQuad,$Top:$JssorEasing$.$EaseInQuad,$Opacity:$JssorEasing$.$EaseLinear,$Rotate:$JssorEasing$.$EaseInQuad},$Opacity:2,$Brother:{$Duration:1200,x:-0.1,y:-0.7,$Rotate:0.1,$Easing:{$Left:$JssorEasing$.$EaseInQuad,$Top:$JssorEasing$.$EaseInQuad,$Opacity:$JssorEasing$.$EaseLinear,$Rotate:$JssorEasing$.$EaseInQuad},$Opacity:2}},
+                                   {$Duration:1400,x:0.25,$Zoom:1.5,$Easing:{$Left:$JssorEasing$.$EaseInWave,$Zoom:$JssorEasing$.$EaseInSine},$Opacity:2,$ZIndex:-10,$Brother:{$Duration:1400,x:-0.25,$Zoom:1.5,$Easing:{$Left:$JssorEasing$.$EaseInWave,$Zoom:$JssorEasing$.$EaseInSine},$Opacity:2,$ZIndex:-10}},
+                                   {$Duration:1800,$Delay:30,$Cols:10,$Rows:5,$Clip:15,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$SlideOut:true,$FlyDirection:5,$Reverse:true,$Formation:$JssorSlideshowFormations$.$FormationStraightStairs,$Assembly:2050,$Easing:{$Left:$JssorEasing$.$EaseInOutSine,$Top:$JssorEasing$.$EaseOutWave,$Clip:$JssorEasing$.$EaseInOutQuad},$ScaleHorizontal:1,$ScaleVertical:0.2,$Outside:true,$Round:{$Top:1.3}}
+                                   ];
+                           var options = {
+                               $AutoPlay: true,
+                               $SlideshowOptions: {
+                                       $Class: $JssorSlideshowRunner$,
+                                       $Transitions: _SlideshowTransitions,
+                                       $TransitionsOrder: 1,
+                                       $ShowLink: true
+                                   }
+                           };
+                           var jssor_slider1 = new $JssorSlider$('image-slider', options);
+  });
+  </script>
+</head>
+<body>
+
+ <div id="image-slider" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
+    <div u="slides" id="image-container" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
+		<div>
+          <img u="image" src="images/image1.jpg">
+          <img u="caption" t="0" style="position:absolute;left:200px;top:60px;width:80px;height:80px;" src="images/image1.jpg">
+          <div u=caption t="0" d=-200 class="captionOrange"  style="position:absolute; left:350px; top: 85px; width:500px; height:30px;"> 
+              Jssor responsive touch swipe javascript image slider
+          </div> 
+          <div u=caption t="0" d=-200 class="captionOrange"  style="position:absolute; left:110px; top: 265px; width:500px; height:30px;"> 
+              Best Performance Slider, Most Scalable Slider
+          </div> 
+          <img u="caption" t="0" d=-200 style="position:absolute;left:680px;top:240px;width:80px;height:80px;" src="images/image4.jpg">
+      	</div>
+      	<!-- Slide -->
+      	<div>
+          <img u="image" src="images/image2.jpg">
+          <img u="caption" t="0" style="position:absolute;left:200px;top:60px;width:80px;height:80px;" src="images/image1.jpg">
+          <div u=caption t="0" d=-200 class="captionOrange"  style="position:absolute; left:350px; top: 85px; width:500px; height:30px;"> 
+              Jssor responsive touch swipe javascript image slider
+          </div> 
+          <div u=caption t="0" d=-200 class="captionOrange"  style="position:absolute; left:110px; top: 265px; width:500px; height:30px;"> 
+              Best Performance Slider, Most Scalable Slider
+          </div> 
+          <img u="caption" t="0" d=-200 style="position:absolute;left:680px;top:240px;width:80px;height:80px;" src="images/image3.jpg">
+      	</div>
+        <!-- <div><img u="image" src="images/image1.jpg" /></div>
+        <div><img u="image" src="images/image2.jpg" /></div>
+        <div><img u="image" src="images/image3.jpg" /></div>
+        <div><img u="image" src="images/image4.jpg" /></div> -->
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<div id="ax-home">
+  <div class="social-networking-links"><a><img ng-src="images/facebook.png"/></a></div>
+  <div id="slider-container">
+  <div id="image-slider" style="position: relative; top: 30px; left: 0px; height: 600px; width: 1260px; margin: auto;">
+   <div u="slides" id="image-container" style="cursor: move; position: absolute;  left: 0px; top: 0px; width: 1260px; height: 600px;">
+      	<div ng-repeat="slideDetails in slidesData"  elementready="$last ? startSlider(slidesData) : null">
+          <img u="image" src="slider/{{slideDetails.slide.image}}"/>
+          <img ng-show="!$last" u="caption" t="{{slideDetails.captions[0].transition}}" id="caption1-{{slideDetails.slide.slideId}}" style="position:absolute;left:0px;top:0px;width:300px;height:300px;" src="slider/{{slideDetails.captions[0].image}}"/>
+          <img ng-show="!$last" u="caption" t="{{slideDetails.captions[1].transition}}" id="caption2-{{slideDetails.slide.slideId}}" style="position:absolute;left:0px;top:0px;width:300px;height:300px;" src="slider/{{slideDetails.captions[1].image}}"/>
+          <img ng-show="!$last" u="caption" t="{{slideDetails.captions[2].transition}}" id="caption3-{{slideDetails.slide.slideId}}" style="position:absolute;left:0px;top:0px;width:300px;height:300px;" src="slider/{{slideDetails.captions[2].image}}"/>
+      	</div>
+    </div>
+      <style>
+            .jssorb09 {
+                position: absolute;
+            }
+            .jssorb09 div, .jssorb09 div:hover, .jssorb09 .av {
+                position: absolute;
+                /* size of bullet elment */
+                width: 20px;
+                height: 20px;
+                filter: alpha(opacity=70);
+                opacity: .7;
+                overflow: hidden;
+                cursor: pointer;
+                border: #fff 1px solid;
+            }
+            .jssorb09 div { background-color: #d3d3d3; }
+            .jssorb09 div:hover, .jssorb09 .av:hover { background-color: gray; }
+            .jssorb09 .av { background-color: #000; }
+            .jssorb09 .dn, .jssorb09 .dn:hover { background-color: #a9a9a9; }
+        </style>
+        <!-- bullet navigator container -->
+        <div u="navigator" class="jssorb09" style="bottom: 16px; right: 10px;">
+            <!-- bullet navigator item prototype -->
+            <div u="prototype"></div>
+        </div>
+        <!--#endregion Bullet Navigator Skin End -->
+
+
+        <!--#region Arrow Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
+        <style>
+            /* jssor slider arrow navigator skin 03 css */
+            /*
+            .jssora03l                  (normal)
+            .jssora03r                  (normal)
+            .jssora03l:hover            (normal mouseover)
+            .jssora03r:hover            (normal mouseover)
+            .jssora03l.jssora03ldn      (mousedown)
+            .jssora03r.jssora03rdn      (mousedown)
+            */
+            .jssora03l, .jssora03r {
+                display: block;
+                position: absolute;
+                /* size of arrow element */
+                width: 55px;
+                height: 55px;
+                cursor: pointer;
+                background: url(img/a03.png) no-repeat;
+                overflow: hidden;
+            }
+            .jssora03l { background-position: -3px -33px; }
+            .jssora03r { background-position: -63px -33px; }
+            .jssora03l:hover { background-position: -123px -33px; }
+            .jssora03r:hover { background-position: -183px -33px; }
+            .jssora03l.jssora03ldn { background-position: -243px -33px; }
+            .jssora03r.jssora03rdn { background-position: -303px -33px; }
+        </style>
+        <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora03l" style="top: 123px; left: 8px;">
+        </span>
+        <!-- Arrow Right -->
+        <span u="arrowright" class="jssora03r" style="top: 123px; right: 8px;">
+        </span>
+        <!--#endregion Arrow Navigator Skin End -->
+        </div>
+  </div>
+  <div id="advantage-axr">
+    <div id="advantage-title" class="title">{{advantageAXRTitle}}</div>
+    <div id="advantage-description">
+    	{{advantageDescriptionText}}
+    </div>
+  </div>
+  <div class="latest-designs">
+    <div id="design-title" class="title">{{latestDesignsTitle}}</div>
+    <div class="blocks-container">
+	    <div class="blocks" ng-repeat="product in latestProducts">
+	    	<a ui-sref="products_graphics({modelId: {{product.productId}}, colorId: {{product.colorId}}, graphicsId: {{product.graphicsId}}, graphicsColorId: {{product.graphicsColorId}} })">
+	    	<img ng-src="products/{{product.productId}}/{{product.productId}}_{{product.colorId}}_{{product.graphicsId}}_{{product.graphicsColorId}}_f.jpg"></img>
+	    	</a>
+	      <!-- <img ng-src="{{latestDesign.image}}"></img> -->
+	    </div>
+    </div>
+  </div>
+  <div class="models">
+    <div id="models-title" class="title">{{modelsTitle}}</div>
+    <div class="blocks-container">
+	    <div class="blocks" ng-repeat="product in $root.productsList">
+	      <a ui-sref="products_overview({modelId: product.productId})"><img ng-src="products/{{product.productId}}/{{product.productId}}_{{product.productColorId}}_{{product.productGraphicsId}}_{{product.productGraphicsColorId}}_f.jpg"></img></a>
+	    </div>
+    </div>
+  </div>
+</div>

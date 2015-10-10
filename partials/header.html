@@ -1,0 +1,18 @@
+<div id="ax-header" ng-controller="HeadersController">
+  <div id="ax-logo">
+  <img alt="" ng-src="img/logo.gif">
+  </div>
+  <ul class="ax-navbar">
+    <li><a ui-sref="contacts">{{contactUs}}</a></li>
+    <li><a ui-sref="dealers" ui-sref-opts="{reload: true, inherit: false}">{{dealers}}</a></li>
+    <li><a ui-sref="warranty">{{warranty}}</a></li>
+    <li id="products-menu"><a ui-sref="products">{{products}}</a>
+      <ul class="sub-menu">
+         <li ng-repeat="product in $root.productsList"><a ui-sref="products_overview({modelId: product.productId})">{{product.name}}</a></li>
+      </ul>         
+    </li>
+    <li><a ui-sref="about">{{about}}</a></li>
+    <li><a ui-sref="home">{{home}}</a></li>
+  </ul>
+</div>
+<div id="scroll-top" onclick="ax_utils.scrollTop()">Top</div>
